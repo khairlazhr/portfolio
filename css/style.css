@@ -1,0 +1,247 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Declared styles */
+
+:root {
+    /* Fonts */
+    --ff-primary: 'Source Sans Pro', sans-serif; 
+
+    /* Font Weight */
+    --fw-reg: 300;
+    --fw-bold: 900;
+
+    --clr-light: #fff;
+    --clr-dark: #00203FFF;
+    --clr-accent: #ADEFD1FF;
+    
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25);
+}
+
+
+
+/* Typography / Page Styling */
+
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+section {
+    padding: 2em 5em;
+    margin: 0 auto;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 { font-size: var(--fs-h1) }
+h2 { font-size: var(--fs-h2) }
+h3 { font-size: var(--fs-h3) }
+
+.section__span--intro { font-weight: var(--fw-bold) }
+
+.section__title {
+    margin-bottom: .25em;
+}
+
+.section__span--intro  {
+    display: block;
+}
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.section__subtitle--intro,
+.section__subtitle--about {
+    background: var(--clr-accent);
+    font-family: var(--ff-secondary);
+}
+
+/* Nav Bar */
+
+/* Intro Section Styling*/
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    max-width: 900px;
+}
+
+.section__title {
+    text-align: center;
+}
+
+.section__title--intro {
+    font-weight: var(--fw-reg);
+}
+
+.section__subtitle--intro{
+    text-align:center;
+    align-self: stretch;
+    padding: 0.25em 0;
+}
+
+.section__image--intro {
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    object-position: 40% 0%;
+    box-shadow: var(--bs);
+}
+
+
+
+.about-me {
+    background-blend-mode: overlay;
+    background-color: #343434;
+    background-image: url(../images/ferenc-almasi-eYpcLDXHVb0-unsplash.jpg);
+    background-size: cover;
+    color: var(--clr-light);
+    text-align: center;
+}
+
+.about-me__body {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.section__title--work {
+    margin-bottom: 0.5em;
+}
+
+.section__title--about {
+    color: var(--clr-accent)
+}
+
+.my-work {
+    max-width: 900px;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    align-items: center;
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+}
+
+.portfolio__img {
+    border-radius: 10px;
+    transition: 
+        opacity 250ms linear;
+}
+
+.portfolio__img:hover,
+.portfolio__item:focus .portfolio__img {
+    opacity: .7;
+}
+
+/* Footer */
+
+footer {
+    background-color: var(--clr-dark);
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 0.2em 0;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100px;
+    margin: 0 auto;
+    padding: 0 0 1em;
+}
+
+
+.fa-brands {
+    color: var(--clr-accent)
+}
+
+.footer__link {
+    text-decoration: none;
+    color: var(--clr-accent)
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    opacity: 0.7;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 750px) {
+    :root {
+            --fs-h1: 4.5rem;
+            --fs-h2: 3.75rem;
+            --fs-h3: 1.5rem;
+            --fs-body: 1.125rem;
+    }
+
+    .intro {
+        display: grid;
+        width: auto;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-areas: 
+            "img title"
+            "img subtitle";
+        grid-template-columns: minmax(auto, 340px) max-content;
+        padding: 1.5em;
+    }
+
+    .section__image--intro {
+        align-self: center;
+        justify-self: center;
+        grid-area: img
+    }
+
+    .section__title--intro {
+        align-self: center;
+        justify-self: center;
+        grid-area: title
+    }
+
+    .section__subtitle--intro {
+        grid-area: subtitle;
+        align-self: start;
+        grid-column: -1 / 1;
+        grid-row: 2;
+        z-index: -1;
+        padding-right: 1em;
+        text-align: right;
+    }
+}
